@@ -17,3 +17,5 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'twitter-bootstrap-rails'
+
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
