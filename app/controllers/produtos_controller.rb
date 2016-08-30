@@ -31,4 +31,23 @@ class ProdutosController < ApplicationController
     	@produtos = Produto.where "nome like ?", "%#{@nome_a_buscar}%"
    	end
 
+    def edit
+        id = params[:id]
+        @produto = Produto.find(id)
+        render :new
+    end
+
+    def update
+        id = params[:id]
+        @produto = Produto.find(id)
+        valores = params.require(:produto).permit :nome, :descricao, :preco, :quantidade
+        if @produto.update valores
+            flash[:notice] = "Produto salvo com sucesso"
+            redirect_to root_url
+        else
+            render :new
+        end
+
+    end
+
 end
